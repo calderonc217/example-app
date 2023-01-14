@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title fs-4 fw-normal">Calcular el factorial de un numero</h5>
                     <i class="fa-solid fa-calculator fa-5x text-info my-4"></i>
-                    <a href="{{route('examples.getFactorial')}}" type="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</a>
+                    <a href="{{route('examples.getFactorial')}}" role="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title fs-4 fw-normal">Calcular la amortizacion de un prestamo</h5>
                     <i class="fa-solid fa-file-invoice-dollar fa-5x text-success my-4"></i>
-                    <button type="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</button>
+                    <a href="{{route('examples.getCredito')}}" role="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</a>
                 </div>
             </div>
         </div>

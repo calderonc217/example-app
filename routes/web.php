@@ -21,4 +21,7 @@ Route::get('/', function () {
 Route::get('examples/factorial', ['uses' => 'App\Http\Controllers\ExampleController@getFactorial', 'as' => 'examples.getFactorial']);
 Route::post('examples/factorial', ['uses' => 'App\Http\Controllers\ExampleController@postFactorial', 'as' => 'examples.postFactorial']);
 
+Route::get('examples/credito', ['uses' => 'App\Http\Controllers\ExampleController@getCredito', 'as' => 'examples.getCredito']);
+Route::post('examples/credito', ['uses' => 'App\Http\Controllers\ExampleController@postCredito', 'as' => 'examples.postCredito']);
+
 Route::resource('companies', CompanyController::class);

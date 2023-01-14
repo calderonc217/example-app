@@ -25,12 +25,12 @@
                         @if ($result)
                             <div class="alert alert-success my-1">
                                 <h5 class="alert-heading">Completado!</h5>
-                                <p>El resultado es <b>{{ $result }}</b></p>
+                                <p>El resultado es <b>{{ number_format($result) }}</b></p>
                             </div>
                         @endif
                         @csrf
                         <div class="mb-3">
-                            <label for="inputValue" class="form-label">Name</label>
+                            <label for="inputValue" class="form-label">Ingrese un Valor</label>
                             <input type="number" class="form-control @error('inputValue') is-invalid @enderror"
                                    id="inputValue" name="inputValue" min="0" step="1">
                             @error('inputValue')

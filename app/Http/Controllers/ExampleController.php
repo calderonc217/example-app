@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTimeImmutable;
 use Illuminate\Http\Request;
 
 class ExampleController extends Controller {
@@ -13,12 +14,11 @@ class ExampleController extends Controller {
 
     public function postFactorial(Request $request) {
         $request->validate([
-            'inputValue' => 'required',
+            'inputValue' => 'required|min:0|numeric',
         ]);
 
         $number = $request->post('inputValue');
         $result = $this->factorial($number);
-        $result = round($result, 2);
         return view('examples.factorial', compact('result'));
     }
 
@@ -37,6 +37,46 @@ class ExampleController extends Controller {
     }
 
     public function getCredito() {
-        return view('examples.credito');
+        $result = array(
+            'pagos' => array(),
+            'monto' => '',
+            'plazo' => '',
+            'interes' => ''
+        );
+        return view('examples.credito', compact('result'));
+    }
+
+    public function postCredito(Request $request) {
+        $request->validate([
+            'monto' => 'required|min:1|numeric',
+            'plazo' => 'required|min:1|numeric',
+            'interes' => 'required|min:1|numeric'
+        ]);
+
+        $importe = $request->post('monto');
+        $saldo = $request->post('monto');
+        $plazo = $request->post('plazo');
+        $tasaInteres = $request->post('interes');
+        $cuotaCapital = round($importe / $plazo, 2);
+        $pagos = array();
+
+        for ($i = 0; $i < $plazo; $i++) {
+            $interes = round($saldo * $tasaInteres / 100, 2);
+            $pagos[] = array(
+                'numero' => $i + 1,
+                'capital' => $cuotaCapital,
+                'interes' => $interes,
+                'total' => $cuotaCapital + $interes,
+                'saldo' => $saldo
+            );
+            $saldo -= $cuotaCapital;
+        }
+        $result = array(
+            'pagos' => $pagos,
+            'monto' => $importe,
+            'plazo' => $plazo,
+            'interes' => $tasaInteres
+        );
+        return view('examples.credito', compact('result'));
     }
 }
