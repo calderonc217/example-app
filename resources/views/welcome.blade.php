@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h5 class="card-title fs-4 fw-normal">Modelo de base de datos relacional</h5>
                     <i class="fa-solid fa-database fa-5x text-warning my-4"></i>
-                    <button type="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</button>
+                    <a href="{{route('examples.getModelo')}}" role="button" class="w-100 btn btn-lg btn-primary">Ver Ejemplo</a>
                 </div>
             </div>
         </div>

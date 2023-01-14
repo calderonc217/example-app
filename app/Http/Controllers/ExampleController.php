@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DateTimeImmutable;
 use Illuminate\Http\Request;
 
 class ExampleController extends Controller {
@@ -27,7 +26,7 @@ class ExampleController extends Controller {
      * @param $number int Numero que ingresa a la funcion
      * @return float|int|void
      */
-    private function factorial($number) {
+    private function factorial(int $number) {
         if ($number > 1) {
             return $number * $this->factorial($number - 1);
         }
