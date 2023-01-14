@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('examples/factorial', ['uses' => 'App\Http\Controllers\ExampleController@getFactorial', 'as' => 'examples.getFactorial']);
+Route::post('examples/factorial', ['uses' => 'App\Http\Controllers\ExampleController@postFactorial', 'as' => 'examples.postFactorial']);
+
 Route::resource('companies', CompanyController::class);
